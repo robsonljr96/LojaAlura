@@ -29,15 +29,15 @@ func Insert(w http.ResponseWriter, r *http.Request) {
 
 		precoConvertido, err := strconv.ParseFloat(preco, 64)
 		if err != nil {
-			log.Panicln("Erro na conversao do preço:", err)
+			log.Panicln("❌Erro na conversao do preço:", err)
 		}
 		quantidadeConvertida, err := strconv.Atoi(quantidade)
 		if err != nil {
-			log.Panicln("Erro na conversao da quantidade:", err)
+			log.Panicln("❌Erro na conversao da quantidade:", err)
 		}
 		models.CriarNovoProduto(nome, descricao, precoConvertido, quantidadeConvertida)
 	}
-	log.Println("Produto cadastrado com sucesso!")
+	log.Println("Produto cadastrado com sucesso!✅")
 	http.Redirect(w, r, "/", 301)
 
 }
@@ -61,16 +61,16 @@ func Update(w http.ResponseWriter, r *http.Request) {
 		quantidade := r.FormValue("quantidade")
 		idConvertido, err := strconv.Atoi(id)
 		if err != nil {
-			log.Panicln("Erro na conversao do id:", err)
+			log.Panicln("❌Erro na conversao do id:", err)
 		}
 
 		precoConvertido, err := strconv.ParseFloat(preco, 64)
 		if err != nil {
-			log.Panicln("Erro na conversao do preço:", err)
+			log.Panicln("❌Erro na conversao do preço:", err)
 		}
 		quantidadeConvertida, err := strconv.Atoi(quantidade)
 		if err != nil {
-			log.Panicln("Erro na conversao da quantidade:", err)
+			log.Panicln("❌Erro na conversao da quantidade:", err)
 		}
 		models.AtualizaProduto(idConvertido, nome, descricao, precoConvertido, quantidadeConvertida)
 	}
